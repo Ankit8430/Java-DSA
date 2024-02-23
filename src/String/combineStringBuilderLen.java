@@ -12,6 +12,6 @@ public class combineStringBuilderLen {
             StringBuilder sb=new StringBuilder(sc.next());
             toLen+=sb.length();
         }
-        System.out.println(toLen);
+        System.out.println("Length => "+toLen);
     }  
 }

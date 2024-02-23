@@ -3,18 +3,21 @@ package String;
 import java.util.Scanner;
 
 public class replaceEtoIStringBuilder {
-      public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter Name:");
-        StringBuilder sb=new StringBuilder(sc.next());
-        for(int i=0;i<sb.length();i++){
-            if(sb.charAt(i)=='e'){
-                sb.setCharAt(i, 'i');
-            }else if(sb.charAt(i)=='i'){
-                sb.setCharAt(i, 'e');
+     public static void replaceEtoI(StringBuilder sb){
+        for(int a=0;a<sb.length();a++){
+            if(sb.charAt(a)=='e'){
+                sb.setCharAt(a, 'i');
+            }else if(sb.charAt(a)=='i'){
+                sb.setCharAt(a, 'e');
             }
         }
-        System.out.println(sb);
-
+    
+     }
+      public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the String");
+       StringBuilder sb=new StringBuilder(sc.next());
+       replaceEtoI(sb);
+       System.out.println(sb);
     }  
 }
