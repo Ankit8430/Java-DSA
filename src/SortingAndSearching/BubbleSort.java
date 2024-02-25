@@ -1,27 +1,34 @@
 package SortingAndSearching;
 
+import java.util.Scanner;
+
 public class BubbleSort {
     //Bubble Sort
-    public static void bubbleSort1(){
-        int arr[]={7,8,3,1,2};
-        int n=arr.length;
-        int temp;
-        // Time Complexity --> O(N^2)
-        for(int i=n-1;i>0;i--){ // n-1
-            for(int j=0;j<i;j++){ // n-1, n-2, n-3, n-4, -----   -> O(N)
+    public static void bubbleSort1(int arr[],int n){
+        int swap;
+        for(int i=n-1;i>0;i--){
+            for(int j=0;j<i;j++){
                 if(arr[j]>arr[j+1]){
-                    temp=arr[j];
+                    swap=arr[j];
                     arr[j]=arr[j+1];
-                    arr[j+1]=temp;
+                    arr[j+1]=swap;
                 }
             }
         }
-        System.out.println("Sorted Array:");
-        for(int i=0;i<n;i++){
-            System.out.println(arr[i]);
-        }
     }
     public static void main(String[] args){
-       bubbleSort1();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the length of array ");
+        int n=sc.nextInt();
+        System.out.println("Enter the value in array");
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        System.out.println("Bubble Sort: ");
+       bubbleSort1(arr,n);
+       for(int i=0;i<n;i++){
+        System.out.println(arr[i]);
+       }
     }
 }
