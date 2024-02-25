@@ -4,7 +4,7 @@ abstract class Animal{
         System.out.println("Hello, I am Animal");
     }
     public void breath(){
-        System.out.println("breath");
+        System.out.println("breath1");
     }
     abstract void walk();
 }
