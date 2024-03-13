@@ -84,6 +84,33 @@ public class SinglyLinkedListBasic {
     public int getSize(){
         return this.size;
     }
+    public Node reverseLinkedListRecursive(Node head){
+        if(head==null || head.next==null){
+            return head;
+        }
+         Node newHead=reverseLinkedListRecursive(head.next);
+         head.next.next=head;
+         head.next=null;
+         return newHead;
+    }
+    public void reverseLinkedList(){
+        if(head==null || head.next==null){
+            return;
+        }
+        Node preNode=head;
+        Node currNode=head.next;
+
+        while(currNode!=null){
+            Node nextNode=currNode.next;
+            currNode.next=preNode;
+
+            //Update
+            preNode=currNode;
+            currNode=nextNode;
+        }
+        head.next=null;
+        head=preNode;
+    }
     public static void main(String[] args){
         SinglyLinkedListBasic list=new SinglyLinkedListBasic();
         list.addFirst("is");
@@ -93,13 +120,9 @@ public class SinglyLinkedListBasic {
         list.printLinkedList();
         list.addFirst("This");
         list.printLinkedList();
-        list.deleteFirst();
+        //list.reverseLinkedList();
         list.printLinkedList();
-        list.deleteLast();
+        list.head=list.reverseLinkedListRecursive(list.head);
         list.printLinkedList();
-        System.out.println(list.getSize());
-        list.addLast("list");
-        list.printLinkedList();
-        System.out.println(list.getSize());
     }
 }
